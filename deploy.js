@@ -1,10 +1,11 @@
 const HDWalletProvider = require('truffle-hdwallet-provider')
 const Web3 = require('web3')
 const {interface,bytecode} = require('./compile')
+require('dotenv')
 
 const provider = new HDWalletProvider(
-    'festival misery rabbit soap doll ride voice gift emerge height near letter', // unlocks the account using the mnemonic
-    'https://rinkeby.infura.io/v3/634f0f4f0b07413885957430833c4509'
+    process.env.MNEMONIC_PHRASE,
+    process.env.DEPLOY_URL
 )
 
 const web3 = new Web3(provider)
